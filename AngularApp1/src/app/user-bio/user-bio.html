@@ -1,0 +1,19 @@
+<p>also bio component is now wporking!</p>
+<div class="bio-container">
+  <h3>About Me</h3>
+  
+  <!-- View Mode -->
+  <div *ngIf="!isEditing">
+    <p class="bio-text">{{ bio || 'No bio provided yet.' }}</p>
+    <button (click)="startEditing()">Edit Bio</button>
+  </div>
+  
+  <!-- Edit Mode -->
+  <div *ngIf="isEditing">
+    <textarea [(ngModel)]="tempBio" rows="3" placeholder="Write something about yourself..."></textarea>
+    <div class="button-group">
+      <button (click)="saveBio()" class="save-btn">Save</button>
+      <button (click)="cancelEditing()" class="cancel-btn">Cancel</button>
+    </div>
+  </div>
+</div>
